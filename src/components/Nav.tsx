@@ -8,13 +8,13 @@ const links = [
 export default function Nav() {
   return (
     <div
-      className="sticky top-0 z-50 border-b border-[var(--rule)] bg-[var(--paper)]/90 backdrop-blur-sm"
+      className="nav-shell sticky top-0 z-50 bg-[var(--paper)]/92 backdrop-blur-sm"
       style={{ height: 'var(--nav-height)' }}
     >
       <nav className="mx-auto flex h-full max-w-4xl items-center justify-between px-6">
         <a
           href="#top"
-          className="font-mono-tech text-xs tracking-[0.2em] text-[var(--ink)] uppercase"
+          className="font-mono-tech text-xs tracking-[0.2em] text-[var(--ink)] uppercase transition-colors hover:text-[var(--accent)]"
         >
           魏威 <span className="text-[var(--accent)]">/ WW</span>
         </a>
@@ -24,7 +24,7 @@ export default function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="font-mono-tech flex items-center gap-1.5 text-xs text-[var(--ink-soft)] transition-colors hover:text-[var(--accent)] sm:text-sm"
+                className="nav-link font-mono-tech flex items-center gap-1.5 text-xs text-[var(--ink-soft)] transition-colors hover:text-[var(--accent)] sm:text-sm"
               >
                 <span className="hidden text-[var(--accent-soft)] sm:inline">{l.mark}</span>
                 {l.label}

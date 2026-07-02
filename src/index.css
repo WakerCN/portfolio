@@ -108,16 +108,89 @@ section[id],
 .tag-chip-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem 0.5rem;
+  gap: 0.45rem 0.5rem;
 }
 
+/* 描边用 rule 色但压低透明度、方角替代满圆角 —— 贴近"工程笔记"里图纸标注框的观感，
+   而不是通用 UI 库的胶囊 pill */
 .tag-chip {
   font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
   font-size: 0.7rem;
   line-height: 1.4;
-  padding: 0.15rem 0.55rem;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 80%, transparent);
+  border-radius: 3px;
   color: var(--ink-soft);
   white-space: nowrap;
+  background-color: color-mix(in srgb, var(--paper-raised) 55%, transparent);
+  transition: border-color var(--transition-fast, 150ms ease), color var(--transition-fast, 150ms ease);
+}
+
+/* 可交互场景下（目前均为纯展示），预留 hover 态一致性 */
+a .tag-chip {
+  transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+}
+
+/* ---------------------------------------------------------
+   Nav 层级感：sticky 导航需要比 section 分隔线更强的存在感，
+   但又不能引入新色系 —— 用双层阴影模拟纸张略微抬起的效果
+--------------------------------------------------------- */
+.nav-shell {
+  box-shadow: 0 1px 0 var(--rule), 0 6px 12px -10px rgba(28, 26, 23, 0.18);
+}
+
+.nav-link {
+  position: relative;
+  padding-block: 0.2rem;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.15rem;
+  height: 1.5px;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-fast, 150ms ease);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* 统一的 focus 可见态：键盘用户在纸感背景上也要有清晰反馈 */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------------------------------------------------------
+   Project tier 分组视觉重量：真实业务项目组用更粗的顶部强调线
+   + 稍大的标题字号，练习组保持克制，靠字号/线宽差异而非徽章表达权重
+--------------------------------------------------------- */
+.tier-heading--production {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.tier-heading--practice {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.tier-rule--production {
+  border-top-width: 2px;
+  border-top-color: var(--ink);
+}
+
+.tier-rule--practice {
+  border-top-width: 1px;
+  border-top-color: var(--rule);
 }

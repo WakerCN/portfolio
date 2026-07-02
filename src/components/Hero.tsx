@@ -35,7 +35,7 @@ export default function Hero() {
       <div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10 sm:gap-6">
         <a
           href="#contact"
-          className="inline-flex items-center gap-2 bg-[var(--ink)] px-5 py-2.5 text-base font-medium text-[var(--paper)] transition-colors hover:bg-[var(--accent)]"
+          className="inline-flex items-center gap-2 rounded-[3px] bg-[var(--ink)] px-5 py-2.5 text-base font-medium text-[var(--paper)] shadow-[0_1px_0_rgba(28,26,23,0.4)] transition-all duration-150 hover:-translate-y-0.5 hover:bg-[var(--accent)] hover:shadow-[0_4px_10px_-2px_rgba(47,93,79,0.45)] active:translate-y-0 active:shadow-none"
         >
           联系我
           <span aria-hidden="true">→</span>
