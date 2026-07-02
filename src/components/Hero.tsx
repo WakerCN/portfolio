@@ -1,26 +1,35 @@
 export default function Hero() {
   return (
-    <header className="mx-auto max-w-5xl px-6 pt-24 pb-16 text-center">
-      <p className="mb-4 text-sm tracking-widest text-sky-400 uppercase">
-        Frontend Engineer · Web / C端 / 多端
+    <header className="mx-auto max-w-4xl px-6 pt-28 pb-20 sm:pt-36">
+      <p className="font-mono-tech text-xs tracking-[0.2em] text-[var(--accent)] uppercase">
+        Frontend Engineer — Web / C端 / 多端
       </p>
-      <h1 className="text-4xl font-semibold text-white sm:text-5xl">
-        魏威 <span className="text-slate-500">/ Weiwei</span>
+
+      <h1 className="mt-6 text-5xl leading-[1.1] font-semibold tracking-tight text-[var(--ink)] sm:text-6xl">
+        魏威
+        <span className="ml-3 text-3xl font-normal text-[var(--ink-faint)] sm:text-4xl">
+          / Weiwei
+        </span>
       </h1>
-      <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-400">
-        目前专注换电 / 车服域的 Web 中后台开发，业余时间在扩展 C 端、多端与
-        AI-agent 方向的能力。这里是我技术探索与项目的合集。
+
+      <p className="mt-8 max-w-xl text-lg leading-relaxed text-[var(--ink-soft)]">
+        目前专注
+        <span className="underline-accent">换电 / 车服域</span>
+        的 Web 中后台开发，业余时间在扩展 C 端、多端与 AI-agent
+        方向的能力。这里是我技术探索与项目的合集。
       </p>
-      <div className="mt-8 flex justify-center gap-4 text-sm">
+
+      <div className="mt-10 flex items-center gap-8">
         <a
           href="#projects"
-          className="rounded-full bg-sky-500 px-5 py-2 font-medium text-white transition hover:bg-sky-400"
+          className="group inline-flex items-center gap-2 border-b-2 border-[var(--ink)] pb-1 text-base font-medium text-[var(--ink)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
         >
           看项目
+          <span className="transition-transform group-hover:translate-x-1">→</span>
         </a>
         <a
           href="#contact"
-          className="rounded-full border border-slate-700 px-5 py-2 font-medium text-slate-300 transition hover:border-slate-500"
+          className="text-base text-[var(--ink-soft)] transition-colors hover:text-[var(--accent)]"
         >
           联系我
         </a>

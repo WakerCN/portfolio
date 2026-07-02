@@ -6,23 +6,30 @@ const links = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-5xl px-6 py-16 text-center">
-      <h2 className="text-2xl font-semibold text-white">联系我</h2>
-      <p className="mt-2 text-slate-400">欢迎交流前端 / 全栈 / AI-agent 相关的机会</p>
-      <div className="mt-6 flex justify-center gap-6 text-sm">
+    <section id="contact" className="mx-auto max-w-4xl px-6 py-20">
+      <p className="font-mono-tech text-xs tracking-[0.2em] text-[var(--accent)] uppercase">
+        05 — Contact
+      </p>
+      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--ink)]">联系我</h2>
+      <p className="mt-2 text-[var(--ink-faint)]">
+        欢迎交流前端 / 全栈 / AI-agent 相关的机会
+      </p>
+
+      <div className="mt-8 flex gap-8 border-t border-[var(--rule)] pt-8 text-base">
         {links.map((l) => (
           <a
             key={l.label}
             href={l.href}
             target="_blank"
             rel="noreferrer"
-            className="rounded-full border border-slate-700 px-4 py-2 text-slate-300 transition hover:border-sky-500 hover:text-sky-400"
+            className="underline-accent text-[var(--ink)] hover:text-[var(--accent)]"
           >
             {l.label}
           </a>
         ))}
       </div>
-      <p className="mt-10 text-xs text-slate-600">
+
+      <p className="font-mono-tech mt-16 text-xs text-[var(--ink-faint)]">
         © {new Date().getFullYear()} Weiwei · Built with Vite + React, deployed on GitHub Pages
       </p>
     </section>

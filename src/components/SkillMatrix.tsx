@@ -37,34 +37,33 @@ const skills: Skill[] = [
 
 export default function SkillMatrix() {
   return (
-    <section className="mx-auto max-w-5xl px-6 py-16">
-      <h2 className="text-2xl font-semibold text-white">能力矩阵</h2>
-      <p className="mt-2 text-slate-400">五个方向，从当前主力到正在拓展的能力</p>
-      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <section className="mx-auto max-w-4xl px-6 py-20">
+      <p className="font-mono-tech text-xs tracking-[0.2em] text-[var(--accent)] uppercase">
+        02 — Capabilities
+      </p>
+      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--ink)]">
+        能力矩阵
+      </h2>
+      <p className="mt-2 text-[var(--ink-faint)]">五个方向，从当前主力到正在拓展的能力</p>
+
+      <div className="mt-10 border-t border-[var(--rule)]">
         {skills.map((s) => {
           const meta = trackMeta[s.track]
           return (
             <div
               key={s.track}
-              className="rounded-xl border border-slate-800 bg-slate-900/50 p-5"
+              className="grid grid-cols-1 gap-2 border-b border-[var(--rule)] py-6 sm:grid-cols-[7rem_1fr]"
             >
-              <span
-                className="inline-block rounded-full px-3 py-1 text-xs font-medium"
-                style={{ backgroundColor: `${meta.color}22`, color: meta.color }}
-              >
-                {meta.label}
-              </span>
-              <p className="mt-3 text-sm text-slate-300">{s.summary}</p>
-              <ul className="mt-3 flex flex-wrap gap-2">
-                {s.items.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-md bg-slate-800 px-2 py-1 text-xs text-slate-400"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <div className="flex items-baseline gap-2 sm:flex-col sm:gap-1">
+                <span className="tag-mark">{meta.mark}</span>
+                <h3 className="text-sm font-medium text-[var(--ink)]">{meta.label}</h3>
+              </div>
+              <div>
+                <p className="text-[var(--ink-soft)]">{s.summary}</p>
+                <p className="font-mono-tech mt-3 text-xs text-[var(--ink-faint)]">
+                  {s.items.join('  ·  ')}
+                </p>
+              </div>
             </div>
           )
         })}

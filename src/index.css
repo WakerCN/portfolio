@@ -1,12 +1,59 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------
+   设计系统："工程笔记" 风格
+   —— 纸感浅色背景 + 单一强调色（墨绿）+ 衬线标题 / 等宽点缀
+   —— 用分隔线与序号替代圆角卡片与彩色 pill
+--------------------------------------------------------- */
+
+:root {
+  --paper: #f4f1ea;
+  --paper-raised: #eae5d9;
+  --ink: #1c1a17;
+  --ink-soft: #55504a;
+  --ink-faint: #928c82;
+  --rule: #d8d1c2;
+  --accent: #2f5d4f;
+  --accent-soft: #6b8f82;
+  --accent-wash: #e2e9e2;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background-color: #0b0f19;
-  color: #e5e7eb;
-  font-family: system-ui, "Segoe UI", "PingFang SC", Roboto, sans-serif;
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(28, 26, 23, 0.05) 1px, transparent 0);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font-family: "Source Serif 4", "Songti SC", "PingFang SC", Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-mono-tech {
+  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--paper);
+}
+
+/* 序号标记 —— 替代彩色 pill 的技术方向标记方式 */
+.tag-mark {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+}
+
+/* 手绘感下划线，用于强调关键词 */
+.underline-accent {
+  text-decoration: underline;
+  text-decoration-color: var(--accent-soft);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }

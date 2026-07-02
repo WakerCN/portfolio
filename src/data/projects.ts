@@ -10,12 +10,12 @@ export interface Project {
   status: 'live' | 'wip'
 }
 
-export const trackMeta: Record<Track, { label: string; color: string }> = {
-  web: { label: 'Web / PC 中后台', color: '#3b82f6' },
-  'c-end': { label: 'C端 / H5', color: '#22c55e' },
-  multi: { label: '多端', color: '#a855f7' },
-  fullstack: { label: '全栈', color: '#f59e0b' },
-  'ai-agent': { label: 'AI-Agent', color: '#ec4899' },
+export const trackMeta: Record<Track, { label: string; mark: string }> = {
+  web: { label: 'Web / PC 中后台', mark: '01' },
+  'c-end': { label: 'C端 / H5', mark: '02' },
+  multi: { label: '多端', mark: '03' },
+  fullstack: { label: '全栈', mark: '04' },
+  'ai-agent': { label: 'AI-Agent', mark: '05' },
 }
 
 // TODO: 补全每个项目的 demo 链接、真实截图、一句话业务背景
