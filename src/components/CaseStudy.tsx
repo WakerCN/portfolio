@@ -1,6 +1,6 @@
 export default function CaseStudy() {
   return (
-    <section className="mx-auto max-w-4xl px-6 py-20">
+    <section id="case-study" className="section-spacing mx-auto max-w-4xl px-6">
       <p className="font-mono-tech text-xs tracking-[0.2em] text-[var(--accent)] uppercase">
         04 — Case Study
       </p>
@@ -8,7 +8,7 @@ export default function CaseStudy() {
         多 AI-Agent 编排工作流
       </h2>
 
-      <div className="mt-10 grid grid-cols-1 gap-8 border-t border-[var(--rule)] pt-10 sm:grid-cols-3">
+      <div className="mt-8 grid grid-cols-1 gap-6 border-t border-[var(--rule)] pt-8 sm:mt-10 sm:grid-cols-3 sm:gap-8 sm:pt-10">
         <div>
           <span className="tag-mark">背景</span>
           {/* TODO: 换成你自己的真实描述 —— 为什么需要同时用多个编码 agent，遇到的具体痛点 */}

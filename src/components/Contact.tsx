@@ -6,7 +6,7 @@ const links = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-4xl px-6 py-20">
+    <section id="contact" className="section-spacing mx-auto max-w-4xl px-6">
       <p className="font-mono-tech text-xs tracking-[0.2em] text-[var(--accent)] uppercase">
         05 — Contact
       </p>
@@ -29,7 +29,7 @@ export default function Contact() {
         ))}
       </div>
 
-      <p className="font-mono-tech mt-16 text-xs text-[var(--ink-faint)]">
+      <p className="font-mono-tech mt-12 text-xs text-[var(--ink-faint)] sm:mt-16">
         © {new Date().getFullYear()} Weiwei · Built with Vite + React, deployed on GitHub Pages
       </p>
     </section>

@@ -57,3 +57,67 @@ body {
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
 }
+
+/* ---------------------------------------------------------
+   响应式间距系统
+   —— 移动端与桌面端使用不同的 spacing scale，而非同一套 class 硬套两端
+   —— 目标：移动端首屏更快进入实质内容、section 间不需要大量划屏
+--------------------------------------------------------- */
+
+/* 内容 section 的通用垂直间距（Skills / Projects / CaseStudy / Contact） */
+.section-spacing {
+  padding-top: var(--space-section-mobile);
+  padding-bottom: var(--space-section-mobile);
+}
+
+/* Hero 专用间距：移动端明显收紧，避免首屏留白吃掉划屏预算 */
+.hero-spacing {
+  padding-top: var(--space-hero-top-mobile);
+  padding-bottom: var(--space-hero-bottom-mobile);
+}
+
+:root {
+  --space-section-mobile: 2.75rem; /* 44px：移动端 section 间距，约为桌面端的一半 */
+  --space-section-desktop: 5rem; /* 80px：等价于原 py-20，桌面端保留原节奏 */
+  --space-hero-top-mobile: 4.5rem; /* 72px：预留 sticky nav 高度 + 少量呼吸感 */
+  --space-hero-bottom-mobile: 2.5rem; /* 40px */
+  --space-hero-top-desktop: 7rem; /* 112px：约等于原 pt-28/pt-36 节奏 */
+  --space-hero-bottom-desktop: 5rem; /* 80px */
+  --nav-height: 3.25rem; /* 52px，sticky nav 高度，供 scroll-margin 使用 */
+}
+
+@media (min-width: 640px) {
+  .section-spacing {
+    padding-top: var(--space-section-desktop);
+    padding-bottom: var(--space-section-desktop);
+  }
+
+  .hero-spacing {
+    padding-top: var(--space-hero-top-desktop);
+    padding-bottom: var(--space-hero-bottom-desktop);
+  }
+}
+
+/* 锚点跳转时，内容顶部预留 sticky nav 高度，避免标题被遮住 */
+section[id],
+[id="contact"] {
+  scroll-margin-top: calc(var(--nav-height) + 0.5rem);
+}
+
+/* 技术标签容器：从纯 mono 文本流改为可换行的 chip 组，移动端扫读更清晰 */
+.tag-chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.5rem;
+}
+
+.tag-chip {
+  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  padding: 0.15rem 0.55rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}

@@ -37,7 +37,7 @@ const skills: Skill[] = [
 
 export default function SkillMatrix() {
   return (
-    <section className="mx-auto max-w-4xl px-6 py-20">
+    <section id="skills" className="section-spacing mx-auto max-w-4xl px-6">
       <p className="font-mono-tech text-xs tracking-[0.2em] text-[var(--accent)] uppercase">
         02 — Capabilities
       </p>
@@ -46,13 +46,13 @@ export default function SkillMatrix() {
       </h2>
       <p className="mt-2 text-[var(--ink-faint)]">五个方向，从当前主力到正在拓展的能力</p>
 
-      <div className="mt-10 border-t border-[var(--rule)]">
+      <div className="mt-8 border-t border-[var(--rule)] sm:mt-10">
         {skills.map((s) => {
           const meta = trackMeta[s.track]
           return (
             <div
               key={s.track}
-              className="grid grid-cols-1 gap-2 border-b border-[var(--rule)] py-6 sm:grid-cols-[7rem_1fr]"
+              className="grid grid-cols-1 gap-2 border-b border-[var(--rule)] py-5 sm:grid-cols-[7rem_1fr] sm:py-6"
             >
               <div className="flex items-baseline gap-2 sm:flex-col sm:gap-1">
                 <span className="tag-mark">{meta.mark}</span>
@@ -60,9 +60,13 @@ export default function SkillMatrix() {
               </div>
               <div>
                 <p className="text-[var(--ink-soft)]">{s.summary}</p>
-                <p className="font-mono-tech mt-3 text-xs text-[var(--ink-faint)]">
-                  {s.items.join('  ·  ')}
-                </p>
+                <div className="tag-chip-group mt-3">
+                  {s.items.map((item) => (
+                    <span key={item} className="tag-chip">
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           )
