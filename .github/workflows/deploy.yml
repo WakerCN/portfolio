@@ -23,7 +23,11 @@ jobs:
         with:
           node-version: 20
           cache: npm
-      - run: npm install
+      # package-lock.json is generated on macOS and only records the
+      # darwin-arm64 rolldown native binding (npm/cli#4828), so a Linux
+      # runner can't resolve @rolldown/binding-linux-x64-gnu from it.
+      # Drop the lock and let npm resolve fresh for this platform.
+      - run: rm -f package-lock.json && npm install
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
