@@ -1,7 +1,12 @@
-// TODO: 替换成你自己的真实联系方式
+const primaryLink = {
+  label: '语雀',
+  href: 'https://www.yuque.com/star-one',
+  hint: '技术笔记 · 学习记录 · 经验沉淀',
+}
+
 const links = [
   { label: 'GitHub', href: 'https://github.com/WakerCN' },
-  { label: 'Email', href: 'mailto:your-email@example.com' },
+  { label: 'Email', href: 'mailto:1209562577@qq.com' },
 ]
 
 export default function Contact() {
@@ -15,18 +20,38 @@ export default function Contact() {
         欢迎交流前端 / 全栈 / AI-agent 相关的机会
       </p>
 
-      <div className="mt-8 flex gap-8 border-t border-[var(--rule)] pt-8 text-base">
-        {links.map((l) => (
-          <a
-            key={l.label}
-            href={l.href}
-            target="_blank"
-            rel="noreferrer"
-            className="underline-accent text-[var(--ink)] hover:text-[var(--accent)]"
+      <div className="mt-8 border-t border-[var(--rule)] pt-8">
+        <a
+          href={primaryLink.href}
+          target="_blank"
+          rel="noreferrer"
+          className="group inline-flex items-baseline gap-3"
+        >
+          <span className="text-2xl font-semibold text-[var(--ink)] transition-colors group-hover:text-[var(--accent)]">
+            {primaryLink.label}
+          </span>
+          <span
+            className="transition-transform group-hover:translate-x-1"
+            aria-hidden="true"
           >
-            {l.label}
-          </a>
-        ))}
+            →
+          </span>
+        </a>
+        <p className="font-mono-tech mt-1 text-xs text-[var(--ink-faint)]">{primaryLink.hint}</p>
+
+        <div className="mt-6 flex gap-6 text-sm">
+          {links.map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              target="_blank"
+              rel="noreferrer"
+              className="underline-accent text-[var(--ink-soft)] hover:text-[var(--accent)]"
+            >
+              {l.label}
+            </a>
+          ))}
+        </div>
       </div>
 
       <p className="font-mono-tech mt-12 text-xs text-[var(--ink-faint)] sm:mt-16">
